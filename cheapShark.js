@@ -19,6 +19,8 @@ const pageSize = 'pageSize=5'
 
 async function getDeals(url){
     const response = await fetch(`${url}?${pageSize}`);
+    const status = await response.status;
+    console.log(`status code ${status}`)
     const deals = await response.json();
     for(const deal of deals){
         console.log(`
